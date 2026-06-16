@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Najma Hayett De Vitra — Portfolio · Apple Developer Academy 2027</title>
+<meta name="description" content="Portfolio of Najma Hayett De Vitra — AI Engineer, UX Designer & Visual Storyteller. Applying to Apple Developer Academy Indonesia 2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<!-- Scroll Progress Bar -->
+<style>
+  #scroll-progress {
+    position: fixed; top: 0; left: 0; height: 3px; z-index: 9999;
+    background: linear-gradient(90deg, #0071e3, #5ac8fa, #30d158);
+    width: 0%; transition: width 0.1s linear;
+  }
+</style>
+<style>
+  :root {
+    --ink: #0a0a0f;
+    --paper: #ffffff;
+    --accent: #0071e3;
+    --accent2: #5e5ce6;
+    --green: #30d158;
+    --orange: #ff9f0a;
+    --pink: #ff375f;
+    --muted: #86868b;
+    --border: rgba(0,0,0,0.08);
+    --surface: #f5f5f7;
+    --card: #ffffff;
+    --navy: #1c1c2e;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ═══ NAVBAR ═══ */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    background: rgba(255,255,255,0.82);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 52px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand { font-size: 0.95rem; font-weight: 700; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    background: var(--ink); color: white; font-size: 0.78rem; font-weight: 600;
+    padding: 0.5rem 1.2rem; border-radius: 20px; text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.8; }
+
+  /* ═══ HERO ═══ */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    padding: 6rem 2rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -20%; right: -10%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,113,227,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -20%; left: -10%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(94,92,230,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-inner {
+    max-width: 1000px; width: 100%;
+    display: flex; align-items: center; gap: 5rem;
+    position: relative; z-index: 1;
+  }
+  .hero-text { flex: 1; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(0,113,227,0.15); color: #5ac8fa;
+    border: 1px solid rgba(0,113,227,0.3);
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.4rem 0.9rem; border-radius: 20px; margin-bottom: 1.5rem;
+  }
+  .hero-name {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900; color: white;
+    letter-spacing: -0.04em; line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  .hero-name span { color: #5ac8fa; }
+  .hero-tagline {
+    font-size: 1.1rem; color: rgba(255,255,255,0.6);
+    line-height: 1.7; margin-bottom: 2rem;
+    max-width: 480px;
+  }
+  .hero-meta {
+    font-size: 0.8rem; color: rgba(255,255,255,0.35);
+    line-height: 2; margin-bottom: 2.5rem;
+  }
+  .hero-meta a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .hero-meta a:hover { color: #5ac8fa; }
+  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent); color: white;
+    font-size: 0.88rem; font-weight: 600;
+    padding: 0.85rem 2rem; border-radius: 30px;
+    text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(0,113,227,0.4);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,113,227,0.5); }
+  .btn-secondary {
+    background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8);
+    border: 1px solid rgba(255,255,255,0.15);
+    font-size: 0.88rem; font-weight: 600;
+    padding: 0.85rem 2rem; border-radius: 30px;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.15); }
+  .hero-photo {
+    flex: 0 0 auto;
+  }
+  .hero-photo img {
+    width: 220px; height: 220px;
+    border-radius: 50%; object-fit: cover;
+    border: 4px solid rgba(0,113,227,0.5);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 12px rgba(0,113,227,0.08);
+  }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+  .hero-tag {
+    font-size: 0.72rem; font-weight: 600;
+    padding: 0.3rem 0.75rem; border-radius: 20px;
+    background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.55);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* ═══ SECTIONS ═══ */
+  section { padding: 6rem 2rem; }
+  .container { max-width: 1000px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.65rem; font-weight: 800; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 900; letter-spacing: -0.03em;
+    color: var(--ink); line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .section-sub {
+    font-size: 1rem; color: #555;
+    line-height: 1.8; max-width: 640px;
+    margin-bottom: 3rem;
+  }
+
+  /* ═══ STORY ═══ */
+  .story-section { background: var(--surface); }
+  .story-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .story-card {
+    background: white; border-radius: 16px;
+    padding: 2rem; border: 1px solid var(--border);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .story-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+  .story-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .story-card h3 { font-size: 1rem; font-weight: 800; margin-bottom: 0.6rem; }
+  .story-card p { font-size: 0.875rem; color: #555; line-height: 1.75; }
+
+  /* ═══ PROJECTS ═══ */
+  .project-card {
+    border: 1px solid var(--border);
+    border-radius: 20px; overflow: hidden;
+    margin-bottom: 4rem;
+    transition: box-shadow 0.3s;
+  }
+  .project-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.08); }
+  .project-header-bar { height: 5px; }
+  .bar-blue { background: linear-gradient(90deg, #0071e3, #5ac8fa); }
+  .bar-green { background: linear-gradient(90deg, #30d158, #34c759); }
+  .bar-orange { background: linear-gradient(90deg, #ff9f0a, #ffcc00); }
+  .bar-purple { background: linear-gradient(90deg, #bf5af2, #af52de); }
+  .bar-teal { background: linear-gradient(90deg, #00b4db, #0083b0); }
+  .project-top {
+    padding: 2.5rem 3rem 2rem;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem;
+  }
+  .project-kicker {
+    font-size: 0.65rem; font-weight: 800; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem;
+  }
+  .project-title {
+    font-size: 1.5rem; font-weight: 900; letter-spacing: -0.02em;
+    margin-bottom: 0.4rem;
+  }
+  .project-role {
+    font-size: 0.82rem; font-weight: 600; color: var(--accent);
+  }
+  .tool-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+  .tool-tag {
+    font-size: 0.7rem; font-weight: 600;
+    background: var(--surface); color: var(--ink);
+    border: 1px solid var(--border);
+    padding: 0.25rem 0.65rem; border-radius: 12px;
+  }
+  .project-body { padding: 2.5rem 3rem; }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+  .why-card {
+    background: var(--surface); border-radius: 12px;
+    padding: 1.5rem; border: 1px solid var(--border);
+  }
+  .why-label {
+    font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em;
+    text-transform: uppercase; margin-bottom: 0.5rem;
+  }
+  .why-label.blue { color: var(--accent); }
+  .why-label.green { color: var(--green); }
+  .why-label.orange { color: var(--orange); }
+  .why-label.purple { color: #bf5af2; }
+  .why-label.teal { color: #0083b0; }
+  .why-card p { font-size: 0.875rem; color: #444; line-height: 1.75; }
+  .why-card.full { grid-column: 1 / -1; }
+  .project-link-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--ink); color: white;
+    font-size: 0.82rem; font-weight: 600;
+    padding: 0.7rem 1.5rem; border-radius: 20px;
+    text-decoration: none; margin-top: 1rem;
+    transition: opacity 0.2s;
+  }
+  .project-link-btn:hover { opacity: 0.8; }
+
+  /* ═══ PHOTO GALLERY / SCROLL STRIP ═══ */
+  .photo-strip {
+    display: flex; gap: 1rem; overflow-x: auto;
+    padding: 0 3rem 2rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0,0,0,0.15) transparent;
+  }
+  .photo-strip::-webkit-scrollbar { height: 6px; }
+  .photo-strip::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
+  .photo-strip img {
+    height: 320px; width: auto; flex-shrink: 0;
+    border-radius: 12px; object-fit: cover;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    transition: transform 0.3s;
+  }
+  .photo-strip img:hover { transform: scale(1.02); }
+  .photo-strip-dark { background: #111; padding-top: 1rem; }
+  .photo-strip-dark img { box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+
+  /* ═══ REFLECTION / QUOTE ═══ */
+  .reflection {
+    background: linear-gradient(135deg, #f9f9fb, #f0f0f5);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem; margin: 2rem 0;
+  }
+  .reflection blockquote {
+    font-size: 1.05rem; font-style: italic;
+    color: #333; line-height: 1.85;
+    border-left: 4px solid var(--accent);
+    padding-left: 1.5rem; margin-bottom: 1.5rem;
+  }
+  .reflection h4 { font-size: 0.9rem; font-weight: 800; margin-bottom: 0.6rem; margin-top: 1rem; }
+  .reflection p { font-size: 0.875rem; color: #555; line-height: 1.75; }
+
+  /* ═══ PHOTO PAIR ═══ */
+  .photo-pair { display: flex; gap: 1.5rem; margin: 2rem 0; }
+  .photo-pair-item { position: relative; flex: 1; border-radius: 12px; overflow: hidden; max-height: 280px; }
+  .photo-pair-item img { width: 100%; height: 100%; object-fit: cover; }
+  .photo-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: white; font-size: 0.72rem; font-weight: 700;
+    padding: 1rem 1rem 0.75rem; letter-spacing: 0.05em;
+  }
+
+  /* ═══ TIMELINE ═══ */
+  .timeline-section { background: var(--navy); }
+  .timeline-section .section-title { color: white; }
+  .timeline-section .section-label { color: #5ac8fa; }
+  .timeline-section .section-sub { color: rgba(255,255,255,0.55); }
+  .timeline { position: relative; margin-top: 2rem; }
+  .timeline::before {
+    content: ''; position: absolute;
+    left: 90px; top: 0; bottom: 0;
+    width: 2px; background: rgba(255,255,255,0.1);
+  }
+  .tl-item {
+    display: flex; gap: 2rem; margin-bottom: 2.5rem;
+    position: relative;
+  }
+  .tl-year {
+    flex: 0 0 70px; text-align: right;
+    font-size: 0.8rem; font-weight: 800; color: #5ac8fa;
+    padding-top: 0.2rem;
+  }
+  .tl-dot {
+    position: absolute; left: 83px; top: 6px;
+    width: 16px; height: 16px;
+    background: var(--accent); border-radius: 50%;
+    border: 3px solid var(--navy);
+    box-shadow: 0 0 0 3px rgba(0,113,227,0.3);
+  }
+  .tl-content { flex: 1; padding-left: 2rem; }
+  .tl-event { font-size: 1rem; font-weight: 700; color: white; margin-bottom: 0.4rem; }
+  .tl-desc { font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+  /* ═══ AWARDS ═══ */
+  .awards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2rem; }
+  .award-card {
+    display: flex; gap: 1rem; align-items: flex-start;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.5rem;
+    transition: transform 0.25s;
+  }
+  .award-card:hover { transform: translateY(-2px); }
+  .award-badge {
+    flex: 0 0 auto;
+    font-size: 0.72rem; font-weight: 800;
+    padding: 0.4rem 0.75rem; border-radius: 10px;
+    white-space: nowrap;
+  }
+  .award-badge.gold { background: #fff4d6; color: #b8860b; }
+  .award-badge.silver { background: #f0f0f5; color: #666; }
+  .award-badge.challenge { background: #e8f4fd; color: var(--accent); }
+  .award-info h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.25rem; }
+  .award-info p { font-size: 0.78rem; color: var(--muted); }
+  .certs-text {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.5rem 2rem;
+    font-size: 0.875rem; color: #444; line-height: 1.85; margin-top: 1.5rem;
+  }
+  .certs-text strong { color: var(--ink); }
+
+  /* ═══ OYW SECTION ═══ */
+  .oyw-card {
+    display: flex; gap: 3rem; align-items: center;
+    background: linear-gradient(135deg, #f0f4ff, #e8f4fd);
+    border: 1px solid rgba(0,113,227,0.15);
+    border-radius: 20px; padding: 3rem; margin-top: 2rem;
+  }
+  .oyw-content { flex: 1; }
+  .oyw-content .kicker { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .oyw-content h3 { font-size: 1.4rem; font-weight: 900; color: #004d99; letter-spacing: -0.02em; margin-bottom: 1rem; }
+  .oyw-content p { font-size: 0.9rem; color: #444; line-height: 1.8; margin-bottom: 1rem; }
+  .oyw-quote {
+    background: white; border-radius: 10px; padding: 1.2rem 1.5rem;
+    border-left: 4px solid var(--accent);
+    font-size: 0.875rem; font-style: italic; color: #555; line-height: 1.7;
+    margin-top: 1rem;
+  }
+  .oyw-email-img { flex: 0 0 240px; }
+  .oyw-email-img img {
+    width: 100%; border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+  .oyw-email-caption { font-size: 0.65rem; font-weight: 700; color: var(--muted); text-align: center; margin-top: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* ═══ CLOSING ═══ */
+  .closing-section {
+    background: linear-gradient(160deg, #0a0a0f, #1c1c2e);
+    color: white; text-align: center;
+  }
+  .closing-section .section-title { color: white; }
+  .closing-section .section-label { color: #5ac8fa; }
+  .closing-text { font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.9; max-width: 700px; margin: 0 auto 1.5rem; }
+  .closing-text strong { color: white; }
+  .closing-quote {
+    display: inline-block;
+    font-size: 1.15rem; font-style: italic; color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px; padding: 1.5rem 2.5rem;
+    margin-top: 2rem; max-width: 600px;
+  }
+
+  /* ═══ FOOTER ═══ */
+  footer {
+    background: #0a0a0f; color: rgba(255,255,255,0.35);
+    text-align: center; padding: 2rem;
+    font-size: 0.8rem;
+  }
+  footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+
+  /* ═══ DIVIDER ═══ */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+  /* ═══ SKILLS ROW ═══ */
+  .skills-section { background: var(--surface); }
+  .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
+  .skill-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.5rem;
+    transition: transform 0.25s;
+  }
+  .skill-card:hover { transform: translateY(-3px); }
+  .skill-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .skill-title { font-size: 0.9rem; font-weight: 800; margin-bottom: 0.5rem; }
+  .skill-list { font-size: 0.78rem; color: var(--muted); line-height: 1.9; }
+
+  /* ═══ WORK IN PROGRESS ═══ */
+  .wip-section { background: linear-gradient(135deg, #1a1a2e, #16213e); }
+  .wip-section .section-label { color: #f9ca24; }
+  .wip-section .section-title { color: white; }
+  .wip-section .section-sub { color: rgba(255,255,255,0.55); }
+  .wip-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.2rem; margin-top: 2rem; }
+  .wip-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 1.8rem;
+    position: relative; overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .wip-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.25); }
+  .wip-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #f9ca24, #f0932b);
+  }
+  .wip-status {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.65rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #f9ca24; margin-bottom: 0.75rem;
+  }
+  .wip-dot { width: 7px; height: 7px; background: #f9ca24; border-radius: 50%; animation: pulse-dot 1.5s infinite; }
+  @keyframes pulse-dot { 0%,100%{opacity:1; transform:scale(1);} 50%{opacity:0.5; transform:scale(1.4);} }
+  .wip-card h3 { font-size: 1rem; font-weight: 800; color: white; margin-bottom: 0.6rem; }
+  .wip-card p { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.75; }
+  .wip-progress { margin-top: 1rem; }
+  .wip-progress-label { font-size: 0.7rem; color: rgba(255,255,255,0.4); display: flex; justify-content: space-between; margin-bottom: 0.4rem; }
+  .wip-bar { height: 4px; background: rgba(255,255,255,0.08); border-radius: 2px; }
+  .wip-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, #f9ca24, #f0932b); }
+
+  /* ═══ STATS BANNER ═══ */
+  .stats-banner {
+    background: var(--ink); color: white;
+    padding: 3rem 2rem;
+  }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; max-width: 1000px; margin: 0 auto; }
+  .stat-number { font-size: 2.5rem; font-weight: 900; letter-spacing: -0.05em; }
+  .stat-number.blue { color: #5ac8fa; }
+  .stat-number.green { color: var(--green); }
+  .stat-number.orange { color: var(--orange); }
+  .stat-number.purple { color: #bf5af2; }
+  .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 0.3rem; line-height: 1.5; }
+
+  /* ═══ SCROLL ANIMATION ═══ */
+  .fade-in {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width: 768px) {
+    .hero-inner { flex-direction: column-reverse; gap: 2rem; text-align: center; }
+    .hero-photo img { width: 160px; height: 160px; }
+    .hero-buttons { justify-content: center; }
+    .hero-tags { justify-content: center; }
+    .story-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .awards-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .wip-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .oyw-card { flex-direction: column; }
+    .oyw-email-img { flex: 1; width: 100%; }
+    .project-top { flex-direction: column; }
+    .photo-pair { flex-direction: column; }
+    nav .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+<div id="scroll-progress"></div>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#" class="nav-brand">Najma Hayett 🍎</a>
+  <ul class="nav-links">
+    <li><a href="#story">My Story</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#organizations">Organizations</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#closing">Closing</a></li>
+  </ul>
+  <a href="mailto:najmahdv14@gmail.com" class="nav-cta">Contact Me</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">🍎 Portfolio · Apple Developer Academy 2027</div>
+      <h1 class="hero-name">Najma Hayett<br><span>De Vitra</span></h1>
+      <p class="hero-tagline">
+        Aspiring iOS Developer &amp; Product Designer. Bridging empathetic AI, visual storytelling, and human-centered design to build apps that matter.
+      </p>
+      <div class="hero-meta">
+        Universitas Andalas · Information Systems · Semester 2 · GPA 3.54/4.00<br>
+        Padang, West Sumatra · Willing to Relocate (1st: Batam · 2nd: Jakarta)<br>
+        <a href="mailto:najmahdv14@gmail.com">najmahdv14@gmail.com</a> &nbsp;·&nbsp;
+        <a href="https://github.com/najmahdv" target="_blank">github.com/najmahdv</a> &nbsp;·&nbsp;
+        <a href="https://instagram.com/najma.hayett" target="_blank">@najma.hayett</a> &nbsp;·&nbsp;
+        <a href="https://www.linkedin.com/in/najma-hayett-de-vitra-071586364/" target="_blank">LinkedIn</a>
+      </div>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn-primary">View My Projects</a>
+        <a href="#closing" class="btn-secondary">Read My Story</a>
+      </div>
+      <div class="hero-tags">
+        <span class="hero-tag">🔧 AI Engineering</span>
+        <span class="hero-tag">🎨 UX Design</span>
+        <span class="hero-tag">🎬 Visual Storytelling</span>
+        <span class="hero-tag">🌍 Social Impact</span>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="najma_photo.png" alt="Najma Hayett De Vitra">
+    </div>
+  </div>
+</section>
+
+<!-- MY STORY -->
+<section class="story-section" id="story">
+  <div class="container">
+    <div class="section-label">The "Why" Behind The Code</div>
+    <h2 class="section-title">📖 My Story</h2>
+    <p class="section-sub">I didn't grow up surrounded by technology. I grew up surrounded by <strong>stories</strong>. And slowly, I found a way to merge both worlds.</p>
+    <div class="story-grid">
+      <div class="story-card">
+        <div class="story-icon">🔍</div>
+        <h3>Why</h3>
+        <p>I believe technology is meaningless unless it solves real human problems. When I saw marginalized maritime workers struggling without internet access, I realized that <strong>empathy could be coded into software</strong>.</p>
+      </div>
+      <div class="story-card">
+        <div class="story-icon">🛠️</div>
+        <h3>How</h3>
+        <p>By combining my foundation in Information Systems with self-taught AI development, I build systems that actively <strong>care for the user</strong>. I design in Figma, and bring ideas to life with Python, C++, and local LLMs.</p>
+      </div>
+      <div class="story-card">
+        <div class="story-icon">🎯</div>
+        <h3>What</h3>
+        <p>I'm evolving into a <strong>T-shaped Product Engineer</strong> — deeply skilled in AI and backend systems, while broadly capable in UI/UX and visual storytelling. My goal: empathetic iOS apps that empower the underserved.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section">
+  <div class="container">
+    <div class="section-label">Technical & Creative</div>
+    <h2 class="section-title">🧰 My Skill Set</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">🤖</div>
+        <div class="skill-title">AI & Backend</div>
+        <div class="skill-list">Python · Flask · Local LLMs<br>Ollama · LLaMA 3 · Redis<br>Docker · Pandas</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🎨</div>
+        <div class="skill-title">Design & UX</div>
+        <div class="skill-list">Figma · Wireframing<br>UX Research · Prototyping<br>Human Interface Guidelines</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">💻</div>
+        <div class="skill-title">Software Dev</div>
+        <div class="skill-list">C++ · Linked Lists<br>Sorting & Search Algorithms<br>Borland C++ Builder 6</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🎬</div>
+        <div class="skill-title">Creative</div>
+        <div class="skill-list">Videography · Directing<br>Scriptwriting · Video Editing<br>Content Strategy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label">Featured Work</div>
+    <h2 class="section-title">🚀 Projects</h2>
+    <p class="section-sub">Each project follows the Apple Academy's framework: <strong>Why → How → What</strong>. I document not just what I built, but the thinking behind it.</p>
+
+    <!-- PROJECT 1: SAFETIDE -->
+    <div class="project-card">
+      <div class="project-header-bar bar-blue"></div>
+      <div class="project-top">
+        <div>
+          <div class="project-kicker">Project 01 · 2026 · Self-Initiated Innovation</div>
+          <h3 class="project-title">🌊 SafeTide: Offline Empathic AI for Maritime Safety</h3>
+          <div class="project-role">Role: Solo Creator (Research, UX Design, AI Engineering)</div>
+          <div class="tool-tags">
+            <span class="tool-tag">Python</span>
+            <span class="tool-tag">Flask</span>
+            <span class="tool-tag">LLaMA 3</span>
+            <span class="tool-tag">Ollama</span>
+            <span class="tool-tag">Docker</span>
+            <span class="tool-tag">Redis</span>
+            <span class="tool-tag">Figma</span>
+          </div>
+        </div>
+        <a href="https://github.com/najmahdv/SafeTide" target="_blank" class="project-link-btn">🔗 View on GitHub</a>
+      </div>
+      <div class="project-body">
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-label blue">🔍 Why I Built This</div>
+            <p>Maritime workers in remote coastal zones face extreme safety risks and mental health challenges, yet they <strong>lack internet access</strong> to seek help. Existing solutions assume connectivity, leaving the most vulnerable behind.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-label blue">🛠️ How It Works</div>
+            <p>I engineered an <strong>offline AI chatbot</strong> that runs entirely on local hardware using Ollama (LLaMA 3). The conversation flows are designed to be highly empathetic, ensuring workers feel safe and heard when reporting incidents anonymously.</p>
+          </div>
+          <div class="why-card full">
+            <div class="why-label blue">🎯 What I Delivered (My Contribution)</div>
+            <p>As the <strong>sole developer and designer</strong>, I handled the entire product lifecycle:<br>
+            • Conducted user research based on maritime government data &amp; published reports.<br>
+            • Designed the complete UI/UX &amp; anonymous reporting flow in Figma with user personas &amp; empathy maps.<br>
+            • Developed the backend architecture using Python + Flask + Redis.<br>
+            • Containerized the system with Docker for seamless offline installation.<br>
+            • <strong>Advanced to the national finals of the Youth ESG Maritime Innovation Challenge 2026</strong> — organized by Kemlu RI × Sampoerna University × Blue Ocean Strategy Fellowship™.</p>
+          </div>
+        </div>
+
+        <!-- SafeTide 4 Key Screens -->
+        <h4 style="font-size:0.8rem; font-weight:800; color:var(--muted); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:1rem;">🖼️ UI/UX Design — Key Screens</h4>
+        <div style="display:grid; grid-template-columns: repeat(4,1fr); gap:1rem; margin-bottom:2rem;">
+          <div style="text-align:center;">
+            <img src="safetide_proto_1.png" style="width:100%; border-radius:10px; box-shadow:0 4px 16px rgba(0,0,0,0.1);" alt="SafeTide Identity">
+            <div style="font-size:0.65rem; font-weight:800; color:var(--accent); margin-top:0.5rem;">01. BRAND IDENTITY</div>
+          </div>
+          <div style="text-align:center;">
+            <img src="safetide_proto_2.png" style="width:100%; border-radius:10px; box-shadow:0 4px 16px rgba(0,0,0,0.1);" alt="SafeTide Onboarding">
+            <div style="font-size:0.65rem; font-weight:800; color:var(--accent); margin-top:0.5rem;">02. PROPOSITION</div>
+          </div>
+          <div style="text-align:center;">
+            <img src="safetide_proto_3.png" style="width:100%; border-radius:10px; box-shadow:0 4px 16px rgba(0,0,0,0.1);" alt="SafeTide Dashboard">
+            <div style="font-size:0.65rem; font-weight:800; color:var(--accent); margin-top:0.5rem;">03. CREW HOME</div>
+          </div>
+          <div style="text-align:center;">
+            <img src="safetide_proto_4.png" style="width:100%; border-radius:10px; box-shadow:0 4px 16px rgba(0,0,0,0.1);" alt="SafeTide Controls">
+            <div style="font-size:0.65rem; font-weight:800; color:var(--accent); margin-top:0.5rem;">04. MODE CONTROLS</div>
+          </div>
+        </div>
+
+        <!-- Full 30-screen scroll strip -->
+        <h4 style="font-size:0.8rem; font-weight:800; color:var(--muted); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:1rem;">📱 Complete 30-Screen User Flow (Scroll →)</h4>
+        <div style="background:#111; border-radius:16px; padding:1.5rem 0; margin-bottom:2rem;">
+          <div class="photo-strip photo-strip-dark" style="padding:0 1.5rem 1rem;">
+            <img src="safetide_proto_pdf_1.png" alt="Flow 1"> <img src="safetide_proto_pdf_2.png" alt="Flow 2">
+            <img src="safetide_proto_pdf_3.png" alt="Flow 3"> <img src="safetide_proto_pdf_4.png" alt="Flow 4">
+            <img src="safetide_proto_pdf_5.png" alt="Flow 5"> <img src="safetide_proto_pdf_6.png" alt="Flow 6">
+            <img src="safetide_proto_pdf_7.png" alt="Flow 7"> <img src="safetide_proto_pdf_8.png" alt="Flow 8">
+            <img src="safetide_proto_pdf_9.png" alt="Flow 9"> <img src="safetide_proto_pdf_10.png" alt="Flow 10">
+            <img src="safetide_proto_pdf_11.png" alt="Flow 11"> <img src="safetide_proto_pdf_12.png" alt="Flow 12">
+            <img src="safetide_proto_pdf_13.png" alt="Flow 13"> <img src="safetide_proto_pdf_14.png" alt="Flow 14">
+            <img src="safetide_proto_pdf_15.png" alt="Flow 15"> <img src="safetide_proto_pdf_16.png" alt="Flow 16">
+            <img src="safetide_proto_pdf_17.png" alt="Flow 17"> <img src="safetide_proto_pdf_18.png" alt="Flow 18">
+            <img src="safetide_proto_pdf_19.png" alt="Flow 19"> <img src="safetide_proto_pdf_20.png" alt="Flow 20">
+            <img src="safetide_proto_pdf_21.png" alt="Flow 21"> <img src="safetide_proto_pdf_22.png" alt="Flow 22">
+            <img src="safetide_proto_pdf_23.png" alt="Flow 23"> <img src="safetide_proto_pdf_24.png" alt="Flow 24">
+            <img src="safetide_proto_pdf_25.png" alt="Flow 25"> <img src="safetide_proto_pdf_26.png" alt="Flow 26">
+            <img src="safetide_proto_pdf_27.png" alt="Flow 27"> <img src="safetide_proto_pdf_28.png" alt="Flow 28">
+            <img src="safetide_proto_pdf_29.png" alt="Flow 29"> <img src="safetide_proto_pdf_30.png" alt="Flow 30">
+          </div>
+        </div>
+
+        <!-- SafeTide Reflection -->
+        <div class="reflection">
+          <blockquote>"This project taught me that the hardest part of building AI isn't the code. It's understanding the people you're building it for. Designing empathic conversation flows forced me to think deeply about user psychology, trust, and cultural sensitivity. It also showed me that the best technology is invisible: it just works, even without the internet."</blockquote>
+          <h4>🔮 What's Next</h4>
+          <p>Planning to add <strong>CNN-based visual anomaly detection</strong> for maritime surveillance, and expand language support to include <strong>Bahasa Indonesia and local dialects</strong>.</p>
+          <div style="text-align:center; margin-top:1.5rem;">
+            <img src="certificate_safetide.png" alt="Certificate" style="max-height:180px; border-radius:10px; box-shadow:0 4px 16px rgba(0,0,0,0.1); border:1px solid var(--border);">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 2: SDA BAKARUN -->
+    <div class="project-card">
+      <div class="project-header-bar bar-green"></div>
+      <div class="project-top">
+        <div>
+          <div class="project-kicker">Project 02 · 2025 · Academic Final Project (Tugas Besar)</div>
+          <h3 class="project-title">📊 SDA Bakarun: Bakery Data Management System</h3>
+          <div class="project-role">Role: Solo Developer (Architecture, C++ Logic, Python Automation)</div>
+          <div class="tool-tags">
+            <span class="tool-tag">C++</span>
+            <span class="tool-tag">Borland C++ Builder 6</span>
+            <span class="tool-tag">Linked Lists</span>
+            <span class="tool-tag">Data Structures</span>
+            <span class="tool-tag">Python (Automation)</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-label green">🔍 Why I Built This</div>
+            <p>Local bakeries struggle with complex stock management and revenue recapitulation. I needed to build a highly efficient, lightweight system from scratch to truly understand data optimization at its core.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-label green">🛠️ How It Works</div>
+            <p>Built purely in <strong>C++ and Borland Builder 6</strong>, the system uses raw <strong>singly linked lists</strong> for dynamic memory, implementing custom bubble sort and search algorithms for real-time transaction management.</p>
+          </div>
+          <div class="why-card full">
+            <div class="why-label green">🎯 What I Delivered (My Contribution)</div>
+            <p>I architected and coded the <strong>entire full-stack application independently</strong>:<br>
+            • Designed a scalable C++ linked-list data structure for inventory &amp; transactions.<br>
+            • Built a fully functional GUI using Borland C++ Builder 6.<br>
+            • <strong>Going Beyond:</strong> Wrote custom Python automation scripts to auto-generate the 100+ page project appendix AND PowerPoint presentation directly from the C++ source code — demonstrating a hybrid cross-technology mindset.</p>
+          </div>
+        </div>
+
+        <h4 style="font-size:0.8rem; font-weight:800; color:var(--muted); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:1rem; margin-top:1.5rem;">💻 Application Screenshots (Scroll →)</h4>
+        <div class="photo-strip" style="padding: 0 0 1rem; margin-bottom:1.5rem;">
+          <img src="bakarun_ui_1.png" alt="Bakarun UI 1" style="height:260px; border: 1px solid var(--border);">
+          <img src="bakarun_ui_2.png" alt="Bakarun UI 2" style="height:260px; border: 1px solid var(--border);">
+          <img src="bakarun_ui_3.png" alt="Bakarun UI 3" style="height:260px; border: 1px solid var(--border);">
+          <img src="bakarun_ui_4.png" alt="Bakarun UI 4" style="height:260px; border: 1px solid var(--border);">
+          <img src="bakarun_ui_5.png" alt="Bakarun UI 5" style="height:260px; border: 1px solid var(--border);">
+        </div>
+
+        <div class="reflection">
+          <blockquote>"This project deepened my appreciation for clean architecture and algorithmic thinking. Going beyond the assignment by building Python automation tools showed me how different technologies can complement each other. A C++ project became more powerful with Python scripting on top. This cross-technology mindset is exactly what I want to develop further at the Apple Developer Academy."</blockquote>
+          <h4>🔗 Connection to Apple Academy</h4>
+          <p>The Apple Developer Academy emphasizes <strong>Challenge-Based Learning (CBL)</strong>. This project was my first experience with that approach: I identified a real challenge, investigated solutions through data structure theory, and acted by building a complete working system. The CBL framework now feels natural to me because I've already lived it.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 3: VIDEOGRAPHY -->
+    <div class="project-card">
+      <div class="project-header-bar bar-orange"></div>
+      <div class="project-top">
+        <div>
+          <div class="project-kicker">Project 03 · 2023–2024 · Competition · Award-Winning</div>
+          <h3 class="project-title">🎬 National Videography &amp; Short Film Portfolio</h3>
+          <div class="project-role">Role: Lead Creator (Concept, Direction, Filming, Post-Production)</div>
+          <div class="tool-tags">
+            <span class="tool-tag">Videography</span>
+            <span class="tool-tag">Video Editing</span>
+            <span class="tool-tag">Scriptwriting</span>
+            <span class="tool-tag">Creative Direction</span>
+            <span class="tool-tag">Storyboarding</span>
+            <span class="tool-tag">Teamwork</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="why-grid">
+          <div class="why-card full">
+            <div class="why-label orange">🏆 Competition Results</div>
+            <p>
+              <strong>🥇 1st Place</strong> · Videography Competition — IPDN Kampus Sumatera Barat (2024, Inter-University)<br>
+              <strong>🥈 2nd Place</strong> · Health Education Video — FKM Fair Nasional 2023 (National)<br>
+              <strong>🥈 2nd Place</strong> · Islamic Short Movie Competition (ISMC) — UNNES Islamic Fair 2023 (National)
+            </p>
+          </div>
+          <div class="why-card">
+            <div class="why-label orange">🛠️ My Role</div>
+            <p><strong>Lead creator</strong> in all three competitions. Responsible for concept development, scriptwriting, directing, filming, and post-production editing. Collaborated closely with team members on storyboarding and creative vision.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-label orange">🎯 What I Brought</div>
+            <p>Each video tackled a <strong>social or educational theme</strong> — from health awareness to cultural values. I learned to translate complex messages into <strong>engaging 3–5 minute visual narratives</strong> that resonate with diverse audiences.</p>
+          </div>
+        </div>
+        <div class="reflection">
+          <blockquote>"Winning these competitions taught me that great storytelling is about empathy: understanding what your audience feels and guiding them through an emotional journey. This is the exact same skill I now apply to UX design. Every app tells a story. Every interaction should feel intentional and human."</blockquote>
+          <h4>🔗 Why This Matters for App Development</h4>
+          <p>Videography is not just about cameras. It's about <strong>understanding your audience, structuring a narrative, and delivering an experience within constraints</strong>. These are the same principles behind great app design. I see direct parallels between crafting a compelling 3-minute film and designing a smooth user onboarding flow. Both require empathy, clarity, and the courage to cut what doesn't serve the user.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+</section>
+
+<!-- ORGANIZATIONS -->
+<section id="organizations" style="background: var(--surface);">
+  <div class="container">
+    <div class="section-label">Leadership & Community</div>
+    <h2 class="section-title">🤝 Organizational Experience</h2>
+    <p class="section-sub">Leadership isn't just a title. It's the daily practice of communicating across boundaries, building digital communities, and advocating for what matters.</p>
+
+    <!-- BEM FTI -->
+    <div class="project-card" style="margin-bottom:2rem;">
+      <div class="project-header-bar bar-purple"></div>
+      <div class="project-top">
+        <div>
+          <div class="project-kicker">Project 04 · Organizational · Ongoing</div>
+          <h3 class="project-title">📱 BEM KM FTI — Creative Media &amp; AI Literacy</h3>
+          <div class="project-role" style="color:#bf5af2;">Staff of Creative Information Media · Universitas Andalas</div>
+          <div class="tool-tags">
+            <span class="tool-tag">Content Strategy</span>
+            <span class="tool-tag">Figma</span>
+            <span class="tool-tag">Visual Design</span>
+            <span class="tool-tag">Community Building</span>
+            <span class="tool-tag">AI Literacy</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-label purple">🔍 The Context</div>
+            <p>As staff of Creative Information Media at BEM FTI Universitas Andalas, I manage digital content strategy for the faculty's student body, creating content that bridges <strong>technology literacy with student engagement</strong>.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-label purple">🛠️ My Contribution</div>
+            <p>Beyond regular content creation, I advocate for <strong>AI literacy</strong> among non-technical students, making complex AI concepts accessible and relevant to everyday life. This role strengthens my <strong>cross-functional communication</strong> and <strong>design thinking</strong> daily.</p>
+          </div>
+          <div class="why-card full">
+            <div class="why-label purple">🎯 Skills I'm Developing</div>
+            <p>① <strong>Content Strategy:</strong> Planning &amp; producing content that engages 1000+ students.<br>
+            ② <strong>Visual Design:</strong> Creating social media assets, infographics, and video content using Figma.<br>
+            ③ <strong>Community Building:</strong> Connecting students from different majors around shared tech interests.<br>
+            ④ <strong>AI Advocacy:</strong> Translating complex AI concepts into digestible, relevant content for non-tech audiences.</p>
+          </div>
+        </div>
+        <h4 style="font-size:0.8rem; font-weight:800; color:var(--muted); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:1rem; margin-top:1.5rem;">📸 Gallery</h4>
+        <div class="photo-pair">
+          <div class="photo-pair-item">
+            <img src="org_bem_1.png" alt="BEM KM FTI Family">
+            <div class="photo-label">BEM KM FTI Family</div>
+          </div>
+          <div class="photo-pair-item">
+            <img src="org_bem_2.png" alt="Creative Media Division">
+            <div class="photo-label">Creative Media Division</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NOVO CLUB -->
+    <div class="project-card">
+      <div class="project-header-bar bar-teal"></div>
+      <div class="project-top">
+        <div>
+          <div class="project-kicker">Project 05 · Organizational Development · 2026</div>
+          <h3 class="project-title" style="color:#006080;">🌱 Novo Club Batch 4 by ParagonCorp</h3>
+          <div class="project-role" style="color:#0083b0;">Digital Mastery Class &amp; Future Leaders Community</div>
+          <div class="tool-tags">
+            <span class="tool-tag">Digital Mastery</span>
+            <span class="tool-tag">Innovation Mindset</span>
+            <span class="tool-tag">Leadership</span>
+            <span class="tool-tag">Cross-disciplinary Collaboration</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="why-grid">
+          <div class="why-card full">
+            <div class="why-label teal">🎯 Focus &amp; Impact</div>
+            <p>Selected to participate in the <strong>Novo Club Batch 4 Digital Mastery Class</strong>, a prestigious youth leadership program by ParagonCorp. This program focuses on building advanced digital skills, innovation mindsets, and cross-disciplinary collaboration among top students across Indonesia.</p>
+          </div>
+        </div>
+        <div style="position:relative; width:100%; border-radius:14px; overflow:hidden; max-height:320px; margin-top:1.5rem;">
+          <img src="org_novo_1.jpg" style="width:100%; height:320px; object-fit:cover; object-position:center 35%;" alt="Novo Club Batch 4">
+          <div class="photo-label">Novo Club Batch 4 · Digital Mastery Class 2026</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GROWTH TIMELINE -->
+<section class="timeline-section" id="growth">
+  <div class="container">
+    <div class="section-label">Growth &amp; Evolution</div>
+    <h2 class="section-title">📈 My Growth Journey</h2>
+    <p class="section-sub">A timeline of pivotal moments that shaped who I am as a creator and thinker.</p>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-year">2023</div><div class="tl-dot"></div><div class="tl-content"><div class="tl-event">Discovered my voice through visual storytelling</div><div class="tl-desc">Won 2nd Place at two national videography competitions. Learned that creativity is a tool for impact, not just expression.</div></div></div>
+      <div class="tl-item"><div class="tl-year">2024</div><div class="tl-dot"></div><div class="tl-content"><div class="tl-event">🥇 Won 1st Place at inter-university videography competition</div><div class="tl-desc">Elevated my creative skills and leadership. Started asking: "How can technology amplify the stories I want to tell?"</div></div></div>
+      <div class="tl-item"><div class="tl-year">2025</div><div class="tl-dot"></div><div class="tl-content"><div class="tl-event">Entered university. Fell in love with AI and programming.</div><div class="tl-desc">Enrolled in Information Systems at Universitas Andalas. Discovered Python, AI/ML, and the power of code to solve real problems. Built SDA Bakarun as final project.</div></div></div>
+      <div class="tl-item"><div class="tl-year">Jan 2026</div><div class="tl-dot"></div><div class="tl-content"><div class="tl-event">Built SafeTide — AI for maritime communities</div><div class="tl-desc">Participated in the Youth ESG Maritime Innovation Challenge. Created a functional offline AI chatbot prototype and advanced to the national finals. Found my calling: technology that serves those who need it most.</div></div></div>
+      <div class="tl-item"><div class="tl-year">2026</div><div class="tl-dot"></div><div class="tl-content"><div class="tl-event">Collected 9+ certifications in AI/ML</div><div class="tl-desc">Self-studied AI Ethics (IBM), Generative AI, Claude API development, AWS AI, Microsoft Fabric, and more. Driven by curiosity, not curriculum.</div></div></div>
+      <div class="tl-item"><div class="tl-year">Now 🍎</div><div class="tl-dot"></div><div class="tl-content"><div class="tl-event">Applying to Apple Developer Academy 2027</div><div class="tl-desc">Ready to transition my Python and C++ logic into <strong style="color:white;">Swift</strong> and <strong style="color:white;">SwiftUI</strong>. I want to master the Apple ecosystem to build empathetic, AI-driven iOS applications that scale human connection.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="container">
+    <div class="section-label">Recognitions</div>
+    <h2 class="section-title">🏅 Awards &amp; Certifications</h2>
+    <div class="awards-grid">
+      <div class="award-card">
+        <div class="award-badge challenge">National</div>
+        <div class="award-info">
+          <h4>Youth ESG Maritime Innovation Challenge 2026</h4>
+          <p>Kemlu RI × Sampoerna University × Blue Ocean Strategy Fellowship™</p>
+        </div>
+      </div>
+      <div class="award-card">
+        <div class="award-badge gold">🥇 1st Place</div>
+        <div class="award-info">
+          <h4>Videography Competition · IPDN Kampus Sumbar</h4>
+          <p>Inter-university · Dies Natalis IPDN ke-68 · 2024</p>
+        </div>
+      </div>
+      <div class="award-card">
+        <div class="award-badge silver">🥈 2nd Place</div>
+        <div class="award-info">
+          <h4>Health Education Video · FKM Fair Nasional 2023</h4>
+          <p>National · FKM Universitas Andalas</p>
+        </div>
+      </div>
+      <div class="award-card">
+        <div class="award-badge silver">🥈 2nd Place</div>
+        <div class="award-info">
+          <h4>Islamic Short Movie Competition · UNNES 2023</h4>
+          <p>National · UKKI Universitas Negeri Semarang</p>
+        </div>
+      </div>
+    </div>
+    <div class="certs-text">
+      <strong>9+ Certifications:</strong> Claude AI &amp; Prompting (Coursera) · Developing Apps with Claude API (Coursera) · AI Ethics (IBM) · Intro to Generative AI (IBM) · Intro to AI (IBM) · Data Science with Microsoft Fabric (Dicoding) · AWS AI Academy Indonesia · Elements of AI (University of Helsinki) · Financial Literacy (Dicoding × DBS)
+    </div>
+
+    <!-- OYW -->
+    <div class="oyw-card" style="margin-top:4rem;">
+      <div class="oyw-content">
+        <div class="kicker">✨ Upcoming · October 2026</div>
+        <h3>🌍 One Young World ASEAN Leadership Forum 2026</h3>
+        <p>I am currently preparing to participate as an <strong>Online Delegate</strong> in the prestigious <strong>One Young World (OYW) ASEAN Leadership Forum 2026</strong>.</p>
+        <div class="oyw-quote">
+          "One Young World (OYW) ASEAN Leadership Forum adalah wadah prestisius yang mempertemukan para pemimpin muda, inovator, dan pembuat perubahan (changemakers) dari seluruh Asia Tenggara. Untuk tahun 2026, forum keempat ini diselenggarakan bersamaan dengan International Youth Conference, didukung oleh Universitas Gadjah Mada (UGM) dan RCE Yogyakarta."
+        </div>
+        <p style="margin-top:1rem;">This upcoming milestone is a testament to my commitment to social impact, global collaboration, and continuous growth — a crucial perspective I hope to bring to the collaborative environment of the <strong>Apple Developer Academy</strong>.</p>
+      </div>
+      <div class="oyw-email-img">
+        <img src="oyw_email.png" alt="OYW Official Acceptance Email">
+        <div class="oyw-email-caption">Official Acceptance Email</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS BANNER -->
+<div class="stats-banner fade-in">
+  <div class="stats-grid">
+    <div>
+      <div class="stat-number blue">3×</div>
+      <div class="stat-label">National Competition<br>Award Winner</div>
+    </div>
+    <div>
+      <div class="stat-number green">9+</div>
+      <div class="stat-label">AI & Tech<br>Certifications</div>
+    </div>
+    <div>
+      <div class="stat-number orange">30</div>
+      <div class="stat-label">Figma Screens<br>Designed</div>
+    </div>
+    <div>
+      <div class="stat-number purple">5</div>
+      <div class="stat-label">Projects &<br>Org Experiences</div>
+    </div>
+  </div>
+</div>
+
+<!-- WORK IN PROGRESS -->
+<section class="wip-section" id="wip">
+  <div class="container">
+    <div class="section-label">Work In Progress</div>
+    <h2 class="section-title">🚧 Currently Building & Learning</h2>
+    <p class="section-sub">Apple Academy values authenticity. These are my ongoing projects and growth areas — <em>it doesn't need to be perfect.</em></p>
+    <div class="wip-grid">
+      <div class="wip-card fade-in">
+        <div class="wip-status"><div class="wip-dot"></div> In Progress</div>
+        <h3>🌊 SafeTide v2.0 — Vision AI</h3>
+        <p>Adding CNN-based visual anomaly detection for maritime surveillance. Currently studying PyTorch and computer vision fundamentals to integrate ship detection capabilities.</p>
+        <div class="wip-progress">
+          <div class="wip-progress-label"><span>Research Phase</span><span>35%</span></div>
+          <div class="wip-bar"><div class="wip-fill" style="width:35%"></div></div>
+        </div>
+      </div>
+      <div class="wip-card fade-in">
+        <div class="wip-status"><div class="wip-dot"></div> Self-Learning</div>
+        <h3>🍎 Swift & SwiftUI Fundamentals</h3>
+        <p>Actively working through Apple's official Swift curriculum to bridge my Python and C++ foundation into the iOS ecosystem — the language I want to master at the Academy.</p>
+        <div class="wip-progress">
+          <div class="wip-progress-label"><span>Chapters Completed</span><span>20%</span></div>
+          <div class="wip-bar"><div class="wip-fill" style="width:20%"></div></div>
+        </div>
+      </div>
+      <div class="wip-card fade-in">
+        <div class="wip-status"><div class="wip-dot"></div> Upcoming</div>
+        <h3>🌍 OYW ASEAN Forum 2026</h3>
+        <p>Preparing my contribution as an Online Delegate for the One Young World ASEAN Leadership Forum 2026, focusing on tech for social impact in Southeast Asia.</p>
+        <div class="wip-progress">
+          <div class="wip-progress-label"><span>Preparation</span><span>60%</span></div>
+          <div class="wip-bar"><div class="wip-fill" style="width:60%; background: linear-gradient(90deg,#5ac8fa,#0071e3);"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing-section" id="closing">
+  <div class="container" style="text-align:center;">
+    <div class="section-label">Closing Statement</div>
+    <h2 class="section-title">🍎 What I'll Bring to the Academy</h2>
+    <p class="closing-text">
+      I'm not just a coder or just a designer. I'm a <strong>builder who starts with empathy</strong>. My videography background taught me to see the world through other people's eyes. My AI projects taught me to turn that understanding into working solutions. My organizational experience taught me to collaborate and communicate across boundaries.
+    </p>
+    <p class="closing-text">
+      At the Apple Developer Academy, my ultimate goal is to become an expert in <strong>iOS App Development and Human Interface Design</strong>. I want to evolve into a <strong>T-shaped creator</strong>: someone who can design, develop, and deliver applications that make a real difference in people's lives. I come from Padang, West Sumatra. Not from a tech hub, but from a place where community, resilience, and curiosity are woven into daily life.
+    </p>
+    <p class="closing-text">
+      I am <strong>eager to learn Swift, SwiftUI, and collaborative product design</strong> within the Academy's Challenge-Based Learning environment. I bring technical foundations in AI and software engineering, a proven track record of storytelling and creative problem-solving, and above all: <strong>a genuine hunger to grow alongside people who care about building technology for good</strong>.
+    </p>
+    <div class="closing-quote">
+      "There's no perfect portfolio, just your authentic journey." This is mine. ✨
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Najma Hayett De Vitra · <a href="mailto:najmahdv14@gmail.com">najmahdv14@gmail.com</a> · <a href="https://github.com/najmahdv" target="_blank">GitHub</a> · <a href="https://instagram.com/najma.hayett" target="_blank">@najma.hayett</a></p>
+</footer>
+
+<script>
+  // Scroll progress bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = (scrollTop / scrollHeight) * 100;
+    document.getElementById('scroll-progress').style.width = progress + '%';
+  });
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Smooth active nav highlight
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      if (window.scrollY >= section.offsetTop - 100) current = section.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      link.style.color = link.getAttribute('href') === '#' + current ? '#0071e3' : '';
+    });
+  });
+</script>
+
+</body>
+</html>
